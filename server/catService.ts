@@ -19,12 +19,7 @@ export class CatBackendService {
     async likeCat(catUrl: string): Promise<boolean> {
         console.log(`Trying to like the cat: ${catUrl}`)
         await this.pool.query(
-            "CREATE TABLE IF NOT EXISTS cats (id serial PRIMARY KEY,url VARCHAR(255), likes INT, dislikes INT)"
-        );
-
-        // Create a unique index on the url column to prevent duplicates
-        await this.pool.query(
-            "CREATE UNIQUE INDEX IF NOT EXISTS url_idx ON cats(url)"
+            "CREATE TABLE IF NOT EXISTS cats (id serial PRIMARY KEY,url VARCHAR(255) UNIQUE, likes INT, dislikes INT)"
         );
 
         // Increment the likes column if the cat already exists
@@ -79,12 +74,7 @@ export class CatBackendService {
         console.log(`Trying to dislike the cat: ${catUrl}`)
 
         await this.pool.query(
-            "CREATE TABLE IF NOT EXISTS cats (id serial PRIMARY KEY,url VARCHAR(255), likes INT, dislikes INT)"
-        );
-
-        // Create a unique index on the url column to prevent duplicates
-        await this.pool.query(
-            "CREATE UNIQUE INDEX IF NOT EXISTS url_idx ON cats(url)"
+            "CREATE TABLE IF NOT EXISTS cats (id serial PRIMARY KEY,url VARCHAR(255) UNIQUE, likes INT, dislikes INT)"
         );
 
         // Increment the dislikes column if the cat already exists
