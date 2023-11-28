@@ -1,0 +1,16 @@
+{
+  "name": "genezio-server",
+  "version": "1.0.0",
+  "description": "The implementation of the hello world genezio server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@genezio/types": "^0.1.9",
+    "@types/pg": "^8.10.9",
+    "pg": "^8.11.3"
+  }
+}
